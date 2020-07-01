@@ -14,7 +14,6 @@ let beachDays = {
 };
 
 
-
 class BeachDays extends Component {
 
   getPercent = decimal => {

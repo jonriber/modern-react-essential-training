@@ -1,66 +1,26 @@
 import React,{Component} from 'react';
 import ReactDOM,{render} from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import * as serviceWorker from './serviceWorker';
+// import PropTypes from 'prop-types';
+import Library from './Library';
+import FavoriteColorForm from './FavoriteColorForm';
+//data list
+let bookList = [
+  {'title':'the sun','author':'blake','pages':3},
+  {'title':'the mars','author':'peter','pages':30},
+  {'title':'the venus','author':'ana','pages':300},
+  {'title':'the jupter','author':'mary','pages':3000},
+]
 
-let beachDays = {
-  total: 100,
-  sunny: 35,
-  highWaves:90,
-  rainy:55,
-  flat_days:4,
-  empty: 10,
-};
-
-
-class BeachDays extends Component {
-
-  getPercent = decimal => {
-    return decimal * 100 + '%';
-  };
-
-  checkFlatdays = (flatDays, total) => {
-    let flatResult = flatDays/total;
-    console.log(flatResult);
-    if(flatResult <1 ) {
-      return (`There were ${flatDays} flat days! That´s ${this.getPercent(flatResult)}`);
-    } else {
-      return ('Dude, to manny flat days!');
-    }
-  };
-
-  render() {
-    const {total,sunny,highWaves,rainy,flat} = this.props
-    return(
-      <section>
-        <h1>Beach Days :</h1>
-        <div>
-          <p>Total Beach Days : {total}</p>
-        </div> 
-        <div>
-          <p>Total Sunny Days and Rainy Days: {sunny} and {rainy}</p>
-        </div> 
-        <div>
-          <p>Total highWave Days : {highWaves}</p>
-          <p>Total flat Days: {flat}</p>
-        </div> 
-        <div>
-          <p>Sunny Days : {sunny}</p>
-        </div> 
-        Flat Days Func: {this.checkFlatdays(flat,total)}
-      </section>
-    )
-  }
-};
-
+//render method of DOM -> Reserved
 render(
-  <BeachDays 
-  total={beachDays.total}
-  sunny={beachDays.sunny}
-  highWaves={beachDays.highWaves}
-  rainy={beachDays.rainy}
-  flat={beachDays.flat_days}/>,
+  <section>
+    <Library books = {bookList}/>
+    <FavoriteColorForm/>
+  </section>
+  ,
   document.getElementById('root')
 );
 
